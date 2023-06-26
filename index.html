@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/style-animation.css"/>
     <title>Ruby's Endless Escape</title>
   </head>
 
@@ -30,15 +31,17 @@
         <!-- #game-screen is initially hidden using CSS style display: none -->
         <div id="game-screen">
           <div id="moon"></div>
+
           <div class="parallax parallax1"></div>
           <div class="parallax parallax2"></div>
-          <div class="lives-container">
+
+          <div id="lives-container" class="lives-container">
             <div class="heart"></div>
             <div class="heart"></div>
-            <div class="heart heart-empty"></div>
+            <div class="heart"></div>
           </div>
 
-          <div class="platform"></div>
+          <div id="platform"></div>
         </div>
       </div>
       <!-- #game-screen is initially hidden using CSS style display: none -->

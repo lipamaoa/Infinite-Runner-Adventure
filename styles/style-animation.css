@@ -1,0 +1,115 @@
+@keyframes movePlatform {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: -1958px 0;
+    }
+}
+
+@keyframes moveBackground1 {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: -2378px 0;
+    }
+}
+
+@keyframes moveBackground2 {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: -1281px 0;
+    }
+}
+
+@keyframes run-animation {
+    0% {
+        background-image: url("../images/Adventure Girl/png/Run (1).png");
+    }
+
+    14% {
+        background-image: url("../images/Adventure Girl/png/Run (2).png");
+    }
+
+    28% {
+        background-image: url("../images/Adventure Girl/png/Run (3).png");
+    }
+
+    42% {
+        background-image: url("../images/Adventure Girl/png/Run (4).png");
+    }
+
+    57% {
+        background-image: url("../images/Adventure Girl/png/Run (5).png");
+    }
+
+    71% {
+        background-image: url("../images/Adventure Girl/png/Run (6).png");
+    }
+
+    85% {
+        background-image: url("../images/Adventure Girl/png/Run (7).png");
+    }
+
+    100% {
+        background-image: url("../images/Adventure Girl/png/Run (8).png");
+    }
+}
+
+@keyframes jump-up-animation {
+    0% {
+        background-image: url("../images/Adventure Girl/png/Jump (1).png");
+    }
+
+    20% {
+        background-image: url("../images/Adventure Girl/png/Jump (2).png");
+    }
+
+    40% {
+        background-image: url("../images/Adventure Girl/png/Jump (3).png");
+    }
+
+    60% {
+        background-image: url("../images/Adventure Girl/png/Jump (4).png");
+    }
+
+    80% {
+        background-image: url("../images/Adventure Girl/png/Jump (5).png");
+    }
+
+    100% {
+        background-image: url("../images/Adventure Girl/png/Jump (5).png");
+    }
+}
+
+@keyframes jump-down-animation {
+    0% {
+        background-image: url("../images/Adventure Girl/png/Jump (6).png");
+    }
+
+    20% {
+        background-image: url("../images/Adventure Girl/png/Jump (7).png");
+    }
+
+    40% {
+        background-image: url("../images/Adventure Girl/png/Jump (8).png");
+    }
+
+    60% {
+        background-image: url("../images/Adventure Girl/png/Jump (9).png");
+    }
+
+    80% {
+        background-image: url("../images/Adventure Girl/png/Jump (10).png");
+    }
+
+    100% {
+        background-image: url("../images/Adventure Girl/png/Jump (10).png");
+    }
+}

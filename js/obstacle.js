@@ -1,34 +1,33 @@
 class Obstacle {
-    constructor(gameScreen) {
+    constructor(gameScreen, gapHeight, speed, obstacleType) {
 
         this.gameScreen = gameScreen;
-        this.left = Math.floor(Math.random() * 300 + 70);
-        this.top = -150;
-        this.width = 80;
-        this.heigth = 150;
-        this.element = document.createElement('img');
+        //this.left = Math.floor(Math.random() * 300 + 70);
+        this.left = gameScreen.offsetWidth;
+        this.top = gameScreen.offsetHeight - gapHeight;
 
-        this.element.src ='./images/redCar.png';
-        this.element.style.position = 'absolute';
-        this.element.style.width = `${this.width}px`;
-        this.element.style.heigth = `${this.heigth}px`;
+        this.element = document.createElement("div");
+        this.element.className = `obstacle ${obstacleType}`;
 
         this.element.style.top = `${this.top}px`;
         this.element.style.left = `${this.left}px`;
 
         this.gameScreen.appendChild(this.element);
     }
-    
 
-    move() {
-        // Move the obstacle down by 3px
-        this.top += 3;
+
+    move(speed) {
+        // Move the obstacle 
+        this.left -= speed;
         // Update the obstacle's position on the screen
         this.updatePosition();
     }
     updatePosition() {
-        
+
         this.element.style.left = `${this.left}px`;
-        this.element.style.top = `${this.top}px`;
-      }
+
+    }
+    isOutOfScreen() {
+        return this.left + this.width < 0;
+    }
 }

@@ -60,16 +60,59 @@ body button {
   /* animation: slide 5s linear infinite; */
 }
 
-@keyframes movePlatform {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: -1958px 0;
-  }
+
+#moon {
+  position: absolute;
+  top: 10px;
+  left: 500px;
+  background-size: cover;
+  background-image: url("../images/desert_map/pl_01.png");
+  width: 100px;
+  height: 100px;
 }
 
-.platform {
+.lives-container {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.heart {
+  width: 55px;
+  height: 50px;
+  padding: 0px 2px;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  background-image: url("../images/bonus/h_02.PNG");
+}
+
+.heart-empty {
+  background-image: url("../images/bonus/h_01.PNG");
+}
+
+.obstacle {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100px;
+  height: 50px;
+}
+
+.obstacle-type-1 {
+  background-image: url("../images/desert_map/dec_01.png");
+}
+
+.obstacle-type-2 {
+  background-image: url("../images/desert_map/dec_02.png");
+}
+
+.obstacle-type-3 {
+  background-image: url("../images/desert_map/dec_03.png");
+}
+
+#platform {
   position: absolute;
   bottom: 0;
   background-image: url("../images/desert_map/P_01.PNG");
@@ -109,128 +152,10 @@ body button {
   width: 2562px;
 }
 
-@keyframes moveBackground1 {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: -2378px 0;
-  }
-}
-
-@keyframes moveBackground2 {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: -1281px 0;
-  }
-}
-
-#moon {
-  position: absolute;
-  top: 10px;
-  left: 500px;
-  background-size: cover;
-  background-image: url("../images/desert_map/pl_01.png");
-  width: 100px;
-  height: 100px;
-}
-
-.lives-container {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  display: flex;
-  flex-direction: row;
-}
-
-.heart {
-  width: 55px;
-  height: 50px;
-  padding: 0px 2px;
-  background-size: auto 100%;
-  background-repeat: no-repeat;
-  background-image: url("../images/bonus/h_02.PNG");
-}
-
-.heart-empty {
-  background-image: url("../images/bonus/h_01.PNG");
-}
-
 .player {
   width: 100px;
   height: 100px;
   background-size: cover;
   position: absolute;
   animation: run-animation 0.5s steps(8) infinite;
-}
-
-@keyframes run-animation {
-  0% {
-    background-image: url("../images/Adventure Girl/png/Run (1).png");
-  }
-  14% {
-    background-image: url("../images/Adventure Girl/png/Run (2).png");
-  }
-  28% {
-    background-image: url("../images/Adventure Girl/png/Run (3).png");
-  }
-  42% {
-    background-image: url("../images/Adventure Girl/png/Run (4).png");
-  }
-  57% {
-    background-image: url("../images/Adventure Girl/png/Run (5).png");
-  }
-  71% {
-    background-image: url("../images/Adventure Girl/png/Run (6).png");
-  }
-  85% {
-    background-image: url("../images/Adventure Girl/png/Run (7).png");
-  }
-  100% {
-    background-image: url("../images/Adventure Girl/png/Run (8).png");
-  }
-}
-
-@keyframes jump-up-animation {
-  0% {
-    background-image: url("../images/Adventure Girl/png/Jump (1).png");
-  }
-  20% {
-    background-image: url("../images/Adventure Girl/png/Jump (2).png");
-  }
-  40% {
-    background-image: url("../images/Adventure Girl/png/Jump (3).png");
-  }
-  60% {
-    background-image: url("../images/Adventure Girl/png/Jump (4).png");
-  }
-  80% {
-    background-image: url("../images/Adventure Girl/png/Jump (5).png");
-  }
-  100% {
-    background-image: url("../images/Adventure Girl/png/Jump (5).png");
-  }
-}
-
-@keyframes jump-down-animation {
-  0% {
-    background-image: url("../images/Adventure Girl/png/Jump (6).png");
-  }
-  20% {
-    background-image: url("../images/Adventure Girl/png/Jump (7).png");
-  }
-  40% {
-    background-image: url("../images/Adventure Girl/png/Jump (8).png");
-  }
-  60% {
-    background-image: url("../images/Adventure Girl/png/Jump (9).png");
-  }
-  80% {
-    background-image: url("../images/Adventure Girl/png/Jump (10).png");
-  }
-  100% {
-    background-image: url("../images/Adventure Girl/png/Jump (10).png");
-  }
 }

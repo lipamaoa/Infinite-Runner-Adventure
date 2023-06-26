@@ -7,7 +7,7 @@ class Player {
     this.left = 180;
 
     this.velocityY = 0;
-    this.gravity = 0.05;
+    this.gravity = 5;
     this.onGround = false;
 
     this.element = document.createElement("div");
@@ -48,7 +48,7 @@ class Player {
   jump() {
     console.log("jump");
     if (this.onGround) {
-      this.velocityY = -5;
+      this.velocityY = -50;
       this.onGround = false;
       this.element.style.animation = "jump-up-animation 0.5s steps(8) infinite";
     }
