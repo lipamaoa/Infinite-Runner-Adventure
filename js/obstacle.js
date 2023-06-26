@@ -1,8 +1,7 @@
 class Obstacle {
-    constructor(gameScreen, gapHeight, speed, obstacleType) {
+    constructor(gameScreen, gapHeight, obstacleType) {
 
         this.gameScreen = gameScreen;
-        //this.left = Math.floor(Math.random() * 300 + 70);
         this.left = gameScreen.offsetWidth;
         this.top = gameScreen.offsetHeight - gapHeight;
 
@@ -22,12 +21,28 @@ class Obstacle {
         // Update the obstacle's position on the screen
         this.updatePosition();
     }
+
     updatePosition() {
-
         this.element.style.left = `${this.left}px`;
-
     }
+
     isOutOfScreen() {
         return this.left + this.width < 0;
+    }
+
+    collidedWithPlayer(player) {
+        const playerRect = player.element.getBoundingClientRect();
+        const obstacleRect = this.element.getBoundingClientRect();
+
+        if (
+            playerRect.left < obstacleRect.right &&
+            playerRect.right > obstacleRect.left &&
+            playerRect.top < obstacleRect.bottom &&
+            playerRect.bottom > obstacleRect.top
+        ) {
+            return true; // Collision detected
+        }
+
+        return false; // No collision
     }
 }
