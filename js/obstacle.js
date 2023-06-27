@@ -1,12 +1,11 @@
 class Obstacle {
-    constructor(gameScreen, gapHeight, obstacleType) {
-
+    constructor(gameScreen, gapHeight, endScreenDistance, obstacleType) {
         this.gameScreen = gameScreen;
-        this.left = gameScreen.offsetWidth;
+        this.left = gameScreen.offsetWidth + endScreenDistance;
         this.top = gameScreen.offsetHeight - gapHeight;
 
         this.element = document.createElement("div");
-        this.element.className = `obstacle ${obstacleType}`;
+        this.element.className = obstacleType;
 
         this.element.style.top = `${this.top}px`;
         this.element.style.left = `${this.left}px`;

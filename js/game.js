@@ -10,6 +10,7 @@ class Game {
     this.width = 1000;
     this.score = 0;
     this.lives = 3;
+    this.gemCounter = 0;
     this.isGameOver = false;
     this.animatedId;
     this.speed = 2;
@@ -20,8 +21,10 @@ class Game {
     this.platformDuration = (10 / this.speed) * 1000; // Duration of the platform animation in milliseconds
     this.platformSpeed = this.platformDistance / (this.platformDuration / 1000); // Platform speed in pixels per second
     this.scoreElement = document.getElementById('score');
+    this.gemElement = document.getElementById('gemScore');
 
-    this.obstacleSpawner = new ObstacleSpawner(this.gameScreen);
+    this.obstacleSpawner = new ObstacleSpawner(this.gameScreen, 2000, 4000);
+    this.gemSpawner = new GemSpawner(this.gameScreen, 1000, 3000);
   }
 
   start() {
@@ -60,6 +63,7 @@ class Game {
   update(pixelsTraveled) {
     this.player.move();
     this.obstacleSpawner.update(pixelsTraveled, this.player, () => this.updateLives());
+    this.gemSpawner.update(pixelsTraveled, this.player, () => this.updateGems()); 
     this.updateScore(pixelsTraveled);
 
     if (this.lives <= 0) {
@@ -88,6 +92,11 @@ class Game {
   updateScore(pixelsTraveled) {
     this.score += Math.floor(pixelsTraveled / 10);
     this.scoreElement.textContent = this.score;
+  }
+  updateGems(){
+    this.gemCounter++;
+    this.gemElement.textContent = this.gemCounter;
+    
   }
 
   endGame() {

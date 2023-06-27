@@ -92,6 +92,15 @@ body button {
   background-image: url("../images/bonus/h_01.PNG");
 }
 
+.gem {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 75px;
+  height: 75px;
+  background-image: url("../images/bonus/ch_02.png");
+}
+
 .obstacle {
   position: absolute;
   background-repeat: no-repeat;
@@ -159,10 +168,20 @@ body button {
   position: absolute;
   animation: run-animation 0.5s steps(8) infinite;
 }
-.score {
+
+.score-container{
+  display: flex;
+  flex-direction: column;
   position: absolute;
   top: 10px;
   right: 10px;
+}
+.score {
+  font-size: 24px;
+  color: #fff;
+}
+
+.gemScore{
   font-size: 24px;
   color: #fff;
 }

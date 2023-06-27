@@ -1,16 +1,16 @@
 class ObstacleSpawner {
-    constructor(gameScreen) {
+    constructor(gameScreen, minSpawnInterval, maxSpawnInterval) {
         this.gameScreen = gameScreen;
         this.obstacles = [];
-        this.minSpawnInterval = 2000;
-        this.maxSpawnInterval = 4000;
+        this.minSpawnInterval = minSpawnInterval;
+        this.maxSpawnInterval = maxSpawnInterval;
         this.nextSpawnTime = Date.now() + this.getRandomSpawnInterval();
     }
 
     update(speed, player, collisionCallback) {
         // Check if it's time to spawn a new obstacle
         if (Date.now() > this.nextSpawnTime) {
-            this.spawnObstacle();
+            this.spawn();
             this.nextSpawnTime = Date.now() + this.getRandomSpawnInterval();
         }
 
@@ -33,9 +33,9 @@ class ObstacleSpawner {
         }
     }
 
-    spawnObstacle() {
+    spawn() {
         const obstacleStyle = Math.ceil(Math.random() * 3);
-        const obstacle = new Obstacle(this.gameScreen, 150, `obstacle-type-${obstacleStyle}`);
+        const obstacle = new Obstacle(this.gameScreen, 150, 0, `obstacle obstacle-type-${obstacleStyle}`);
         this.obstacles.push(obstacle);
     }
 
