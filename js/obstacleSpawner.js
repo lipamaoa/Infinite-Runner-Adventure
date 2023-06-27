@@ -31,6 +31,7 @@ class ObstacleSpawner {
                 collisionCallback();
             }
         }
+
     }
 
     spawn() {

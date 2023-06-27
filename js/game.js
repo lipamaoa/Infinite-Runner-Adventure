@@ -5,32 +5,29 @@ class Game {
     this.platform = document.getElementById("platform");
     this.gameEndScreen = document.getElementById("game-end");
     this.livesContainer = document.getElementById("lives-container");
-    this.player = new Player(this.gameScreen);
-    this.height = 600;
-    this.width = 1000;
+    this.scoreElement = document.getElementById('score');
+    this.gemElement = document.getElementById('gemScore');
+
     this.score = 0;
     this.lives = 3;
     this.gemCounter = 0;
     this.isGameOver = false;
     this.animatedId;
+    
     this.speed = 2;
-
     this.frameDuration = 33.33; // 30fps (approximately 33.33ms per frame)
     this.lastFrameTime = 0;
     this.platformDistance = 1958; // Distance covered by the platform animation in pixels
-    this.platformDuration = (10 / this.speed) * 1000; // Duration of the platform animation in milliseconds
-    this.platformSpeed = this.platformDistance / (this.platformDuration / 1000); // Platform speed in pixels per second
-    this.scoreElement = document.getElementById('score');
-    this.gemElement = document.getElementById('gemScore');
-
+        
+    this.player = new Player(this.gameScreen);
     this.obstacleSpawner = new ObstacleSpawner(this.gameScreen, 2000, 4000);
     this.gemSpawner = new GemSpawner(this.gameScreen, 1000, 3000);
   }
 
   start() {
     // Set the height and width of the game screen
-    this.gameScreen.style.height = `${this.height}px`;
-    this.gameScreen.style.width = `${this.width}px`;
+    this.gameScreen.style.height = `712px`;
+    this.gameScreen.style.width = `100%`;
 
     // Hide the start screen
     this.startScreen.style.display = "none";
@@ -38,14 +35,19 @@ class Game {
     // Show the game screen
     this.gameScreen.style.display = "block";
 
+    this.updateSpeed();
+
     // Start the game loop
     this.gameLoop();
 
-    // TODO: adjust through the game
-    this.platform.style.animation = `movePlatform ${10 / this.speed}s linear infinite`
+    this.updateSpeedIntervalId = setInterval(() => this.updateSpeed(), 5000)
   }
 
   gameLoop() {
+    if (this.isGameOver){
+      return;
+    }
+
     const currentTime = performance.now();
     const deltaTime = currentTime - this.lastFrameTime;
 
@@ -58,7 +60,7 @@ class Game {
     }
 
     requestAnimationFrame(() => this.gameLoop());
-  }
+  }      
 
   update(pixelsTraveled) {
     this.player.move();
@@ -69,7 +71,18 @@ class Game {
     if (this.lives <= 0) {
       this.endGame();
       this.isGameOver = true;
+      return;
     }
+  }
+
+  updateSpeed(){
+    this.speed += 0.5;
+    const platformDuration = (10 / this.speed) * 1000; // Duration of the platform animation in milliseconds
+    this.platformSpeed = this.platformDistance / (platformDuration / 1000); // Platform speed in pixels per second
+
+    const newDuration = 10 / this.speed;
+    this.platform.style.animation = this.platform.style.animation.replace(/\d+(?=s)/, newDuration);
+    this.platform.style.animationDuration = (newDuration * 1000) + 'ms';
   }
 
   updateLives() {
@@ -93,19 +106,26 @@ class Game {
     this.score += Math.floor(pixelsTraveled / 10);
     this.scoreElement.textContent = this.score;
   }
+
   updateGems(){
     this.gemCounter++;
     this.gemElement.textContent = this.gemCounter;
-    
   }
 
   endGame() {
     this.player.element.remove();
-    this.obstacles.forEach((obstacle) => obstacle.element.remove());
 
+    clearInterval(this.updateSpeedIntervalId);
+    
+    this.platform.style.animationPlayState = 'paused';;
+    const parallaxes = document.getElementsByClassName('parallax');
+    const array =Array.from(parallaxes);
+    
+    array.forEach(element => {
+      element.style.animationPlayState = 'paused';;
+    });
     setTimeout(() => {
-      this.gameScreen.style.display = "none";
       this.gameEndScreen.style.display = "block";
-    }, 1000)
+    }, 500)
   }
 }

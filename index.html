@@ -1,66 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./styles/style.css" />
-    <link rel="stylesheet" href="./styles/style-animation.css"/>
-    <title>Ruby's Endless Escape</title>
-  </head>
 
-  <body>
-    <main>
-      <!-- #game-intro is initially shown on the game start screen -->
-      <div id="game-intro">
-        <h1>Ruby's Endless Escape</h1>
-        <img
-          src="./images\Adventure Girl\png\Idle (7).png"
-          alt="Ruby"
-          class="Ruby-pic"
-        />
-        <div class="container">
-          <button id="start-button">Start Game</button>
-          <button id="mute-button">Mute</button>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./styles/style.css" />
+  <link rel="stylesheet" href="./styles/style-animation.css" />
+  <title>Ruby's Endless Escape</title>
+</head>
 
-        <p>Use left and right arrow to control Ruby</p>
-        <img src="" alt="" class="" />
+<body>
+  <main>
+    <!-- #game-intro is initially shown on the game start screen -->
+    <div id="game-intro">
+      <h1>Ruby's Endless Run</h1>
+      <img src="./images\Adventure Girl\png\Idle (7).png" alt="Ruby" class="Ruby-pic" />
+      <div class="container">
+        <button id="start-button">Start Game</button>
+        <button id="mute-button">Mute</button>
       </div>
 
-      <div id="game-container">
-        <!-- #game-screen is initially hidden using CSS style display: none -->
-        <div id="game-screen">
-          <div id="moon"></div>
+      <p>Use the space bar to control Ruby</p>
+      <img src="" alt="" class="" />
+    </div>
 
-          <div class="parallax parallax1"></div>
-          <div class="parallax parallax2"></div>
+    <div id="game-container">
+      <!-- #game-screen is initially hidden using CSS style display: none -->
+      <div id="game-screen">
+        <div id="moon"></div>
 
-          <div id="lives-container" class="lives-container">
-            <div class="heart"></div>
-            <div class="heart"></div>
-            <div class="heart"></div>
-          </div>
+        <div class="parallax parallax1"></div>
+        <div class="parallax parallax2"></div>
 
-          <div class="score-container">
-            <div id="score" class="score">0</div>
-            <div id="gemScore" class="gemScore">0</div>
-           
-          </div>
-
-          
-
-          <div id="platform"></div>
+        <div id="lives-container" class="lives-container">
+          <div class="heart"></div>
+          <div class="heart"></div>
+          <div class="heart"></div>
         </div>
+
+        <div class="score-container">
+          <div class="score">
+            <img src="../images/bonus/br_01.PNG" alt="scorePic" class="scorePic" />
+            <p id="score">0</p>
+          </div>
+          <div class="gemScore">
+            <img src="../images/bonus/ch_02.PNG" alt="gemPic" class="gemPic" />
+            <p id="gemScore">0</p>
+          </div>
+        </div>
+
+
+
+        <div id="platform"></div>
+      </div>
+      <div id="game-end" class="game-end" .>
+        <h1>Game Over</h1>
+        <button id="restart-button">Restart</button>
+        <br />
       </div>
       <!-- #game-screen is initially hidden using CSS style display: none -->
       <!-- #game-end is initially hidden using CSS style display: none -->
-    </main>
+  </main>
 
-    <script type="text/javascript" src="js/game.js"></script>
-    <script type="text/javascript" src="js/player.js"></script>
-    <script type="text/javascript" src="js/obstacle.js"></script>
-    <script type="text/javascript" src="js/obstacleSpawner.js"></script>
-    <script type="text/javascript" src="js/gemSpawner.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
-  </body>
+  <script type="text/javascript" src="js/game.js"></script>
+  <script type="text/javascript" src="js/player.js"></script>
+  <script type="text/javascript" src="js/obstacle.js"></script>
+  <script type="text/javascript" src="js/obstacleSpawner.js"></script>
+  <script type="text/javascript" src="js/gemSpawner.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
+</body>
+
 </html>
