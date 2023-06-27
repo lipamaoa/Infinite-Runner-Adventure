@@ -1,7 +1,7 @@
 window.addEventListener('load', () => {
   const startButton = document.getElementById("start-button");
   const muteButton = document.getElementById("mute-button");
-
+const restartButton= document.getElementById("restart-button")
   let game = null;
 
   function startGame() {
@@ -10,7 +10,7 @@ window.addEventListener('load', () => {
     game.start();
   }
 
-  document.addEventListener('keydown', event => {
+    document.addEventListener('keydown', event => {
     const key = event.key;
     const possibleKeystrokes = [
       ' '
@@ -33,7 +33,9 @@ window.addEventListener('load', () => {
   muteButton.addEventListener("click", function () {
     // TODO: Mute
   });
-
-  // TODO: Remove
-  startGame();
+  restartButton.addEventListener("click", function () {
+    location.reload()
+      
+  });
+  
 });
