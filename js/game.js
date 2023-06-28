@@ -1,3 +1,7 @@
+const collisionSound = new Audio('./Sounds/Lava-girl.wav');
+const gemSound = new Audio('./Sounds/GemCollected.wav');
+const endGameSound = new Audio('./Sounds/TitleCrash.wav');
+
 class Game {
   constructor() {
     this.startScreen = document.getElementById("game-intro");
@@ -13,22 +17,23 @@ class Game {
     this.gemCounter = 0;
     this.isGameOver = false;
     this.animatedId;
-    
+
     this.speed = 2;
     this.frameDuration = 33.33; // 30fps (approximately 33.33ms per frame)
     this.lastFrameTime = 0;
     this.platformDistance = 1958; // Distance covered by the platform animation in pixels
-        
+
     this.player = new Player(this.gameScreen);
     this.obstacleSpawner = new ObstacleSpawner(this.gameScreen, 2000, 4000);
     this.gemSpawner = new GemSpawner(this.gameScreen, 1000, 3000);
+
   }
 
   start() {
     // Set the height and width of the game screen
     this.gameScreen.style.height = `712px`;
     this.gameScreen.style.width = `100%`;
-
+    
     // Hide the start screen
     this.startScreen.style.display = "none";
 
@@ -44,7 +49,7 @@ class Game {
   }
 
   gameLoop() {
-    if (this.isGameOver){
+    if (this.isGameOver) {
       return;
     }
 
@@ -60,12 +65,12 @@ class Game {
     }
 
     requestAnimationFrame(() => this.gameLoop());
-  }      
+  }
 
   update(pixelsTraveled) {
     this.player.move();
-    this.obstacleSpawner.update(pixelsTraveled, this.player, () => this.updateLives());
-    this.gemSpawner.update(pixelsTraveled, this.player, () => this.updateGems()); 
+    this.obstacleSpawner.update(pixelsTraveled, this.player, () => this.onCollisonObstacle());
+    this.gemSpawner.update(pixelsTraveled, this.player, () => this.onCollisionGem());
     this.updateScore(pixelsTraveled);
 
     if (this.lives <= 0) {
@@ -75,7 +80,7 @@ class Game {
     }
   }
 
-  updateSpeed(){
+  updateSpeed() {
     this.speed += 0.5;
     const platformDuration = (10 / this.speed) * 1000; // Duration of the platform animation in milliseconds
     this.platformSpeed = this.platformDistance / (platformDuration / 1000); // Platform speed in pixels per second
@@ -85,7 +90,10 @@ class Game {
     this.platform.style.animationDuration = (newDuration * 1000) + 'ms';
   }
 
-  updateLives() {
+  onCollisonObstacle() {
+
+    collisionSound.play();
+
     this.lives--;
     switch (this.lives) {
       case 2:
@@ -100,6 +108,7 @@ class Game {
       default:
         break;
     }
+
   }
 
   updateScore(pixelsTraveled) {
@@ -107,20 +116,23 @@ class Game {
     this.scoreElement.textContent = this.score;
   }
 
-  updateGems(){
+  onCollisionGem() {
     this.gemCounter++;
     this.gemElement.textContent = this.gemCounter;
+
+    gemSound.play();
   }
 
   endGame() {
     this.player.element.remove();
+    endGameSound.play();
 
     clearInterval(this.updateSpeedIntervalId);
-    
+
     this.platform.style.animationPlayState = 'paused';;
     const parallaxes = document.getElementsByClassName('parallax');
-    const array =Array.from(parallaxes);
-    
+    const array = Array.from(parallaxes);
+
     array.forEach(element => {
       element.style.animationPlayState = 'paused';;
     });
