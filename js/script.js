@@ -2,7 +2,7 @@ window.addEventListener('load', () => {
   const startButton = document.getElementById("start-button");
   const muteButton = document.getElementById("mute-button");
   const restartButton = document.getElementById("restart-button");
-
+  const fullscreenToggle = document.getElementById("fullscreen-toggle");
   let game = null;
 
   const audioManager = new AudioManager();
@@ -29,15 +29,15 @@ window.addEventListener('load', () => {
 
   function handleUserInteraction() {
     audioManager.introSound.play();
-  
+
     document.removeEventListener('click', handleUserInteraction);
   }
 
-  document.addEventListener('keydown', event => {
+
+  function handleInput(event) {
     const key = event.key;
     const possibleKeystrokes = [
-      ' ', 'm'
-    ];
+      ' ', 'm'];
 
     if (possibleKeystrokes.includes(key)) {
 
@@ -51,9 +51,12 @@ window.addEventListener('load', () => {
           toggleMute();
           break;
       }
-
     }
-  });
+  }
+
+  document.addEventListener('keydown', handleInput);
+  document.addEventListener('touchstart', handleInput);
+
 
   startButton.addEventListener("click", function () {
     startGame();
@@ -67,4 +70,20 @@ window.addEventListener('load', () => {
     audioManager.stopAudio();
     location.reload();
   })
+
+  //Fullscreen API in JS
+  function toggleFullscreen() {
+    if (document.documentElement.requestFullscreen) {
+      document.documentElement.requestFullscreen();
+    } else if (document.documentElement.mozRequestFullScreen) {
+      document.documentElement.mozRequestFullScreen();
+    } else if (document.documentElement.webkitRequestFullscreen) {
+      document.documentElement.webkitRequestFullscreen();
+    } else if (document.documentElement.msRequestFullscreen) {
+      document.documentElement.msRequestFullscreen();
+    }
+  }
+
+  fullscreenToggle.addEventListener('click', toggleFullscreen);
+
 });
