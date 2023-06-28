@@ -36,7 +36,7 @@ class ObstacleSpawner {
 
     spawn() {
         const obstacleStyle = Math.ceil(Math.random() * 3);
-        const obstacle = new Obstacle(this.gameScreen, 150, 0, `obstacle obstacle-type-${obstacleStyle}`);
+        const obstacle = new Obstacle(this.gameScreen, 175, 0, `obstacle obstacle-type-${obstacleStyle}`);
         this.obstacles.push(obstacle);
     }
 

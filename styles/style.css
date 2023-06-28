@@ -31,8 +31,8 @@ h1 {
 }
 
 .Ruby-pic {
-  width: 265px;
-  height: 255px;
+  width: 285px;
+  height: 275px;
   position: relative;
 }
 
@@ -63,6 +63,16 @@ body button {
   border-style: solid;
   border-width: 3px;
   margin-bottom: 20px;
+}
+
+button#pause-button {
+  position: relative;
+  top: 78px;
+  left: -793px;
+  height: 52px;
+  font-size: 25px;
+  width: 98px;
+  padding: 0px;
 }
 
 p {
@@ -136,8 +146,8 @@ p {
   position: absolute;
   background-repeat: no-repeat;
   background-size: cover;
-  width: 75px;
-  height: 75px;
+  width: 55px;
+  height: 55px;
   background-image: url("../images/bonus/ch_02.png");
 }
 
@@ -145,8 +155,8 @@ p {
   position: absolute;
   background-repeat: no-repeat;
   background-size: cover;
-  width: 100px;
-  height: 50px;
+  width: 150px;
+  height: 75px;
 }
 
 .obstacle-type-1 {
@@ -212,6 +222,8 @@ p {
   top: 10px;
   right: 8%;
   width: 100px;
+
+
 }
 
 .score,
@@ -219,7 +231,8 @@ p {
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 120px;
+  max-width: 120px;
+  min-width: 120px;
   height: 80px;
   font-size: 30px;
   color: #fff;

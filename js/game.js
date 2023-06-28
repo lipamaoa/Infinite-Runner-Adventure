@@ -1,9 +1,7 @@
-const collisionSound = new Audio('./Sounds/Lava-girl.wav');
-const gemSound = new Audio('./Sounds/GemCollected.wav');
-const endGameSound = new Audio('./Sounds/TitleCrash.wav');
-
 class Game {
-  constructor() {
+  constructor(audioManager) {
+    this.audioManager = audioManager;
+
     this.startScreen = document.getElementById("game-intro");
     this.gameScreen = document.getElementById("game-screen");
     this.platform = document.getElementById("platform");
@@ -26,7 +24,6 @@ class Game {
     this.player = new Player(this.gameScreen);
     this.obstacleSpawner = new ObstacleSpawner(this.gameScreen, 2000, 4000);
     this.gemSpawner = new GemSpawner(this.gameScreen, 1000, 3000);
-
   }
 
   start() {
@@ -91,8 +88,7 @@ class Game {
   }
 
   onCollisonObstacle() {
-
-    collisionSound.play();
+    this.audioManager.obstacleSound.play();
 
     this.lives--;
     switch (this.lives) {
@@ -120,12 +116,12 @@ class Game {
     this.gemCounter++;
     this.gemElement.textContent = this.gemCounter;
 
-    gemSound.play();
+    this.audioManager.gemSound.play();
   }
 
   endGame() {
     this.player.element.remove();
-    endGameSound.play();
+    this.audioManager.endGameSound.play();
 
     clearInterval(this.updateSpeedIntervalId);
 
