@@ -148,7 +148,7 @@ p {
   background-size: cover;
   width: 55px;
   height: 55px;
-  background-image: url("../images/bonus/ch_02.png");
+  background-image: url("../images/bonus/ch_02.PNG");
 }
 
 .obstacle {
@@ -160,15 +160,15 @@ p {
 }
 
 .obstacle-type-1 {
-  background-image: url("../images/desert_map/dec_01.png");
+  background-image: url("../images/desert_map/dec_01.PNG");
 }
 
 .obstacle-type-2 {
-  background-image: url("../images/desert_map/dec_02.png");
+  background-image: url("../images/desert_map/dec_02.PNG");
 }
 
 .obstacle-type-3 {
-  background-image: url("../images/desert_map/dec_03.png");
+  background-image: url("../images/desert_map/dec_03.PNG");
 }
 
 #platform {
