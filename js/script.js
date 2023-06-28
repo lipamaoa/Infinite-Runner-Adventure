@@ -106,13 +106,4 @@ window.addEventListener('load', () => {
   }
 
   fullscreenToggle.addEventListener('click', toggleFullscreen);
-
-  function resizeGameContainer() {
-    var container = document.getElementById("game-container");
-    container.style.width = window.innerWidth + "px";
-    container.style.height = window.innerHeight + "px";
-  }
-
-  window.addEventListener("resize", resizeGameContainer);
-
 });

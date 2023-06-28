@@ -27,10 +27,6 @@ class Game {
   }
 
   start() {
-    // Set the height and width of the game screen
-    this.gameScreen.style.height = `712px`;
-    this.gameScreen.style.width = `100%`;
-    
     // Hide the start screen
     this.startScreen.style.display = "none";
 
