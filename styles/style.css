@@ -3,11 +3,32 @@
   src: url('../font family/River Adventurer.ttf');
 }
 
+@media (max-width: 1200px) {
+  #game-container {
+    width: 600px;
+    height: 450px;
+  }
+}
+
+@media (max-width: 800px) {
+  #game-container {
+    width: 400px;
+    height: 300px;
+  }
+}
+
 body {
   margin: 0;
   padding: 0;
   text-align: center;
   font-family: 'CustomFont';
+  overflow: hidden;
+}
+
+
+#game-container{
+  width: 800px;
+  height: 600px;
 }
 
 #game-intro {
@@ -15,11 +36,10 @@ body {
   background-repeat: no-repeat;
   display: block;
   background-image: url("../images/desert_map/Desert_map_demo.png");
+ overflow: hidden;
+ padding: 20px 0px;
 }
 
-#game-end {
-  display: none;
-}
 
 h1 {
   font-family: 'CustomFont', Geneva, Verdana, sans-serif;
@@ -41,10 +61,6 @@ h1 {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-}
-
-#game-intro {
-  padding: 20px 0px;
 }
 
 body button {
@@ -99,7 +115,7 @@ p {
   background-repeat: no-repeat;
   background-size: cover;
   top: 150px;
-  left: 40%;
+  left: 37%;
   width: 100%;
   max-width: 400px;
   height: 385px;
@@ -248,4 +264,5 @@ p {
 p#score,
 p#gemScore {
   margin: 25px 10px;
+  text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
 }

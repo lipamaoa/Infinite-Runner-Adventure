@@ -3,6 +3,11 @@ window.addEventListener('load', () => {
   const muteButton = document.getElementById("mute-button");
   const restartButton = document.getElementById("restart-button");
   const fullscreenToggle = document.getElementById("fullscreen-toggle");
+  const gameContainer = document.getElementById("game-container");
+  const containerRect = gameContainer.getBoundingClientRect();
+
+
+
   let game = null;
 
   const audioManager = new AudioManager();
@@ -55,7 +60,23 @@ window.addEventListener('load', () => {
   }
 
   document.addEventListener('keydown', handleInput);
-  document.addEventListener('touchstart', handleInput);
+
+
+  function handleTouch(event) {
+    // Get the touch coordinates
+    const touchX = event.touches[0].clientX;
+    const touchY = event.touches[0].clientY;
+    const containerX = touchX - containerRect.left;
+    const containerY = touchY - containerRect.top;
+
+    if (containerX > 0 && containerX < containerRect.width &&
+      containerY > 0 && containerY < containerRect.height) {
+      game.player.jump();
+      audioManager.jumpSound.play();
+    }
+  }
+
+  document.addEventListener('touchstart', handleTouch);
 
 
   startButton.addEventListener("click", function () {
@@ -85,5 +106,13 @@ window.addEventListener('load', () => {
   }
 
   fullscreenToggle.addEventListener('click', toggleFullscreen);
+
+  function resizeGameContainer() {
+    var container = document.getElementById("game-container");
+    container.style.width = window.innerWidth + "px";
+    container.style.height = window.innerHeight + "px";
+  }
+
+  window.addEventListener("resize", resizeGameContainer);
 
 });
