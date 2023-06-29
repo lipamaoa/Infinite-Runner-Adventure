@@ -85,8 +85,8 @@ p {
   position: relative;
   right: 3vw;
   color: #fff;
-  font-size: 1vw;
-  text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
+  font-size: 1.5vw;
+  text-shadow: -2px -2px 5px #000, 2px 2px 5px #000;
 }
 
 #game-screen {
@@ -246,8 +246,6 @@ p {
   height: 80px;
   margin: 1vw;
   right: 6vw;
-
-
 }
 
 .scorePic,
