@@ -68,7 +68,7 @@ body button {
   border-color: black;
   border-style: solid;
   border-width: 3px;
-  
+
 }
 
 button#pause-button {
@@ -83,7 +83,7 @@ button#pause-button {
 
 p {
   position: relative;
-  right:3vw ;
+  right: 3vw;
   color: #fff;
   font-size: 1vw;
   text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
@@ -240,13 +240,13 @@ p {
   display: flex;
   flex-direction: row;
   position: relative;
-align-items: center;
+  align-items: center;
   max-width: 120px;
   min-width: 120px;
   height: 80px;
   margin: 1vw;
   right: 6vw;
- 
+
 
 }
 
@@ -260,6 +260,6 @@ p#score,
 p#gemScore {
   margin: 25px 10px;
   text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
-right: 0vw;
-font-size: 2vw;
+  right: 0vw;
+  font-size: 2vw;
 }

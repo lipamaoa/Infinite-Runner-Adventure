@@ -1,5 +1,5 @@
-class AudioManager{
-    constructor(){
+class AudioManager {
+    constructor() {
         this.introSound = document.getElementById("intro-sound");
         this.startGame = document.getElementById("startGame-sound");
         this.jumpSound = document.getElementById("jump-sound");
@@ -7,7 +7,7 @@ class AudioManager{
         this.gemSound = document.getElementById("gem-sound");
         this.endGameSound = document.getElementById("endGame-sound");
 
-        this.audios = []; 
+        this.audios = [];
         this.audios.push(this.introSound);
         this.audios.push(this.startGame);
         this.audios.push(this.jumpSound);
@@ -18,17 +18,17 @@ class AudioManager{
         this.isMuted = false;
     }
 
-    muteAudio(){
+    muteAudio() {
         this.audios.forEach(audio => audio.muted = true);
         this.isMuted = true;
     }
 
-    unmuteAudio(){
+    unmuteAudio() {
         this.audios.forEach(audio => audio.muted = false);
         this.isMuted = false;
     }
 
-    stopAudio(){
+    stopAudio() {
         this.audios.forEach(audio => audio.pause());
     }
 }

@@ -8,6 +8,7 @@ window.addEventListener('load', () => {
   let game = null;
 
   const audioManager = new AudioManager();
+  startAnimation();
 
   function startGame() {
     console.log("start game");
@@ -34,7 +35,6 @@ window.addEventListener('load', () => {
 
     document.removeEventListener('click', handleUserInteraction);
   }
-
 
   function handleInput(event) {
     const key = event.key;
@@ -104,4 +104,22 @@ window.addEventListener('load', () => {
   }
 
   fullscreenToggle.addEventListener('click', toggleFullscreen);
+
+  function startAnimation() {
+    const ruby = document.getElementById("Ruby");
+
+    for (let i = 1; i <= 8; i++) {
+      setTimeout(() => {
+        ruby.src = `../images/Adventure Girl/png/Run (${i}).png`;
+      }, 100 * i);
+    }
+
+    setTimeout(() => {
+      for (let i = 1; i <= 10; i++) {
+        setTimeout(() => {
+          ruby.src = `../images/Adventure Girl/png/Jump (${i}).png`;
+        }, 100 * i);
+      }
+    }, 1500);
+  }
 });

@@ -116,8 +116,8 @@ class Game {
     this.audioManager.gemSound.play();
   }
 
-  jump(){
-    if (this.isGameOver){
+  jump() {
+    if (this.isGameOver) {
       return;
     }
 
