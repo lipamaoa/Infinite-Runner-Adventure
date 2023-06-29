@@ -22,7 +22,7 @@ body {
 
 h1 {
   font-family: 'CustomFont', Geneva, Verdana, sans-serif;
-  font-size: 76pt;
+  font-size: 5vw;
   font-weight: 100;
   margin: 20px;
   color: #fff;
@@ -30,34 +30,36 @@ h1 {
 }
 
 .Ruby-pic {
-  width: 285px;
-  height: 275px;
+  width: 25%;
+  height: 25%;
   position: relative;
+  right: 2vw;
 }
 
 .container {
   display: flex;
-  flex-direction: column;
+  margin: 0 10%;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 
 body button {
-  font-size: 30px;
+  font-size: 2vw;
   background-color: #870007;
   color: #fff;
   font-family: 'CustomFont';
   font-weight: 100;
   color: #fff;
   text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
-  padding: 20px 40px;
+  padding: 10px;
   border: 0;
   box-shadow: 0;
   border-radius: 5px;
   border-color: black;
   border-style: solid;
   border-width: 3px;
-  margin-bottom: 20px;
+  
 }
 
 button#pause-button {
@@ -71,8 +73,10 @@ button#pause-button {
 }
 
 p {
+  position: relative;
+  right:3vw ;
   color: #fff;
-  font-size: 25px;
+  font-size: 1vw;
   text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
 }
 
@@ -96,10 +100,10 @@ p {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   background-repeat: no-repeat;
   background-size: cover;
-  top: 150px;
-  left: 37%;
-  width: 100%;
-  max-width: 400px;
+  top: 14vw;
+  left: 30vw;
+  width: 35vw;
+  max-width: 35vw;
   height: 385px;
   z-index: 2;
 }
@@ -226,12 +230,14 @@ p {
 .gemScore {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  position: relative;
+align-items: center;
   max-width: 120px;
   min-width: 120px;
   height: 80px;
-  font-size: 30px;
-  color: #fff;
+  margin: 1vw;
+  right: 6vw;
+ 
 
 }
 
@@ -245,4 +251,6 @@ p#score,
 p#gemScore {
   margin: 25px 10px;
   text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+right: 0vw;
+font-size: 2vw;
 }
