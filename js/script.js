@@ -4,9 +4,6 @@ window.addEventListener('load', () => {
   const restartButton = document.getElementById("restart-button");
   const fullscreenToggle = document.getElementById("fullscreen-toggle");
   const gameContainer = document.getElementById("game-container");
-  const containerRect = gameContainer.getBoundingClientRect();
-
-
 
   let game = null;
 
@@ -63,6 +60,8 @@ window.addEventListener('load', () => {
 
 
   function handleTouch(event) {
+    const containerRect = gameContainer.getBoundingClientRect();
+
     // Get the touch coordinates
     const touchX = event.touches[0].clientX;
     const touchY = event.touches[0].clientY;
