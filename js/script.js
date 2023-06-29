@@ -110,14 +110,14 @@ window.addEventListener('load', () => {
 
     for (let i = 1; i <= 8; i++) {
       setTimeout(() => {
-        ruby.src = `../images/Adventure Girl/png/Run (${i}).png`;
+        ruby.src = `images/Adventure Girl/png/Run (${i}).png`;
       }, 100 * i);
     }
 
     setTimeout(() => {
       for (let i = 1; i <= 10; i++) {
         setTimeout(() => {
-          ruby.src = `../images/Adventure Girl/png/Jump (${i}).png`;
+          ruby.src = `images/Adventure Girl/png/Jump (${i}).png`;
         }, 100 * i);
       }
     }, 1500);
