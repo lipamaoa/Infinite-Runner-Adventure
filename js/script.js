@@ -70,8 +70,7 @@ window.addEventListener('load', () => {
 
     if (containerX > 0 && containerX < containerRect.width &&
       containerY > 0 && containerY < containerRect.height) {
-      game.player.jump();
-      audioManager.jumpSound.play();
+      game.jump();
     }
   }
 
